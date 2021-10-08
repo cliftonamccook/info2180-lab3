@@ -84,6 +84,9 @@ window.onload = () => {
         location.reload();
     });
 
+    //Exercise 6 - Disallow Cheating
+    //Players cannot change an X to an O or vice versa due to method used
+
 }
 
 function setUpSquares() {
