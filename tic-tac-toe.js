@@ -78,6 +78,12 @@ window.onload = () => {
         }
     }, 500);
 
+    //Exercise 5 - Restart the game
+    resetButton = document.querySelector(".btn");
+    resetButton.addEventListener('click', () => {
+        location.reload();
+    });
+
 }
 
 function setUpSquares() {
