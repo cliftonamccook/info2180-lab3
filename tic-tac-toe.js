@@ -47,6 +47,18 @@ window.onload = () => {
         }
     });
 
+    //Exercise 3 - Change the style when you move your mouse over a square
+    board.forEach(element => {
+        for (i = 0; i < 3; i++) {
+            element[i].addEventListener('mouseover', function () {
+                this.classList.add("hover");
+            });
+            element[i].addEventListener('mouseout', function () {
+                this.classList.remove("hover");
+            });
+        }
+    });
+
 }
 
 function setUpSquares() {
