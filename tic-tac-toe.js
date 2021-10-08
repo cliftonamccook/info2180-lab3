@@ -59,6 +59,25 @@ window.onload = () => {
         }
     });
 
+    //Exercise 4 - Check for the winner and update the status
+    var checkGameState = setInterval(function () {
+        let outcome = checkForWinner(board);
+        if (typeof outcome !== "undefined") {
+            switch (outcome) {
+                case ('X is the winner!'):
+                    document.querySelector("#status").innerHTML = 'Congratulations! X is the Winner!';
+                    document.querySelector("#status").classList.add("you-won");
+                    break;
+                case ('O is the winner!'):
+                    document.querySelector("#status").innerHTML = 'Congratulations! O is the Winner!';
+                    document.querySelector("#status").classList.add("you-won");
+                    break;
+            }
+
+            clearInterval(checkGameState);
+        }
+    }, 500);
+
 }
 
 function setUpSquares() {
@@ -74,32 +93,26 @@ function checkForWinner(board) {
     let o_won = "O is the winner!";
     
     if (board[0][0].innerHTML == 'X' && board[1][1].innerHTML == 'X' && board[2][2].innerHTML == 'X') {
-        //console.log("X is the winner!");
         return x_won;
     }
     if (board[0][2].innerHTML == 'O' && board[1][1].innerHTML == 'O' && board[2][0].innerHTML == 'O') {
-        //console.log("O is the winner!");
         return o_won;
     }
     
     for(r=0; r<3; r++) {
         if(board[r][0].innerHTML=='X' && board[r][1].innerHTML=='X' && board[r][2].innerHTML=='X') {
-            //console.log("X is the winner!");
             return x_won;
         }
         if(board[r][0].innerHTML=='O' && board[r][1].innerHTML=='O' && board[r][2].innerHTML=='O') {
-            //console.log("O is the winner!");
             return o_won
         }
     }
 
     for(c=0; c<3; c++) {
         if(board[0][c].innerHTML=='X' && board[1][c].innerHTML=='X' && board[2][c].innerHTML=='X') {
-            //console.log("X is the winner!");
             return x_won;
         }
         if(board[0][c].innerHTML=='O' && board[1][c].innerHTML=='O' && board[2][c].innerHTML=='O') {
-            //console.log("O is the winner!");
             return o_won
         }
     }
